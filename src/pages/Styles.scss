@@ -1,0 +1,7 @@
+@import "../shared/colors.scss";
+@import "../shared/grid.scss";
+@import "../shared/flexBox.scss";
+
+.photos__container {
+    @include grid;
+}

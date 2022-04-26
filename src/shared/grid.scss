@@ -1,0 +1,27 @@
+@function gridColumns($columns: number) {
+    $templateColumns: 1fr;
+
+    @if $columns == 1 {
+        $templateColumns: 1fr;
+    } @else {
+        $templateColumns: percentage((100 / $columns)) / 100;
+    }
+
+    @return repeat(auto-fit, minmax($templateColumns, 1fr));
+}
+
+@mixin grid {
+    display: grid;
+
+    @media screen and (min-width: 460px) {
+        grid-template-columns: gridColumns(1);
+    }
+
+    @media screen and (min-width: 768px) {
+        grid-template-columns: gridColumns(2);
+    }
+
+    @media screen and (min-width: 1024px) {
+        grid-template-columns: gridColumns(3);
+    }
+}
